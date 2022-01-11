@@ -1,0 +1,43 @@
+corpus:
+  name: 'Haskins_IEEE'
+  path: '/home/beiming/Desktop/RAW_ATS_DATA/Haskins_IEEE'                 
+
+experimental_setup:
+  model_type: 'ATS'                     # 'ATS', 'VC', 'AC', 'IV', SSR, TTS
+  experiment_type: 'SD'
+
+data_setup:
+  spk_list: ['F01'] # ['F01', 'F02', 'F03', 'F04', 'M01', 'M02', 'M03', 'M04']
+
+acoustic_feature:
+  sampling_rate: 22050 
+  filter_length: 1024 
+  hop_length: 256 
+  win_length: 1024 
+  n_mel_channels: 80 
+  mel_fmin: 0.0 
+  mel_fmax: 8000.0
+  normalize_output: 'MVN' # MVN, MINMAX, NONE
+
+articulatory_data:
+  sel_sensors: ['TR', 'TB', 'TT', 'UL', 'LL', 'JAW']   # org_sensor_list = ['TR', 'TB', 'TT', 'UL', 'LL', 'ML', 'JAW', 'JAWL']
+  sel_dim: ['px', 'py', 'pz']                          # org_dim_per_sensor = ['px', 'py', 'pz', 'ox', 'oy', 'oz']
+  lateral: 'xz'
+  normalize_input: None # MVN, MINMAX, NONE
+  delta: True
+  Procrustes: True
+
+training_setup:
+  hidden_size: 256
+  layer_num: 3
+  batch_size: 1
+  learning_rate: 0.0003
+  weight_decay: 0.000
+  num_epoch: 80
+  early_stop: True
+  patient: 10
+
+testing_setup:
+  save_model: True
+  save_output: True
+  synthesis_samples: False
