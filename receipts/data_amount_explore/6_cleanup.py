@@ -33,7 +33,7 @@ def cleanup(args):
     copyfile(config_path, conf_dst)
     
     model_dst = os.path.join(Exp_output_folder, 'models.py')
-    copyfile('models.py', model_dst)
+    copyfile('utils/models.py', model_dst)
 
     train_dst = os.path.join(Exp_output_folder, '3_train.py')
     copyfile('3_train.py', train_dst)

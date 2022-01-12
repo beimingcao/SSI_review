@@ -96,12 +96,6 @@ if __name__ == '__main__':
             train_transforms.append(zero_padding_end(max_len))
             valid_transforms.append(zero_padding_end(max_len))
 
-        print(train_transforms)
-        print('#######################################')
-        print(valid_transforms)
-        print('#######################################')
-        print(test_transforms)
-
         train_dataset = HaskinsData_ATS(prepared_data_path, train_list, ema_dim, transforms = Pair_Transform_Compose(train_transforms))
         valid_dataset = HaskinsData_ATS(prepared_data_path, valid_list, ema_dim, transforms = Pair_Transform_Compose(valid_transforms))
         test_dataset = HaskinsData_ATS(prepared_data_path, test_list, ema_dim, transforms = Pair_Transform_Compose(test_transforms))
