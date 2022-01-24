@@ -61,7 +61,7 @@ if __name__ == '__main__':
         test_list = exp_test_lists[i]
 
         train_dataset = HaskinsData_ATS(prepared_data_path, train_list, ema_dim)
-        if normalize_input != None and normalize_output != None:
+        if normalize_input != 'None' or normalize_output != 'None':
             EMA_mean, EMA_std, WAV_mean, WAV_std, EMA_min, EMA_max, WAV_min, WAV_max = train_dataset.compute_stats()
             data_stats = {'X_mean': EMA_mean, 'X_std': EMA_std, 'X_min': EMA_min, 'X_max': EMA_max,
                           'Y_mean': WAV_mean, 'Y_std': WAV_std, 'Y_min': WAV_min, 'Y_max': WAV_max}

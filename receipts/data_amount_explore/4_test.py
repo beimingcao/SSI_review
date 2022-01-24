@@ -100,10 +100,12 @@ if __name__ == '__main__':
             te = open(os.path.join(data_path_SPK, 'test_data.pkl'), 'rb')
             test_dataset = pickle.load(te)
 
-            if normalize_input != None and normalize_output != None:
+            if normalize_input != 'None' or normalize_output != 'None':
                 stats_pkl_path = os.path.join(data_path_SPK, 'data_stats.pkl')
                 with open(stats_pkl_path, 'rb') as handle:
                     stats = pickle.load(handle)
+            else:
+                stats = {}
 
             avg_vacc = test_LSTM(test_SPK, test_dataset, args.buff_dir, stats, args)
             print(test_SPK, '\t', file = r)

@@ -2,13 +2,13 @@
 
 
 save_results=True
-comment="SD_norm_X_early_stop"
+comment="SA_norm_X_early_stop_Procrustes"
 
 conf_dir=conf/ATS_conf.yaml
 experiments_dir=experiments
 current_exp=current_exp
 
-stage=1
+stage=0
 
 if [ $stage -le 0 ];then
 echo "New experiments, converting data in binary type, and put into current_exp folder, apply sample-level transforms"
